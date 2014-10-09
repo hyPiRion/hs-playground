@@ -1,3 +1,8 @@
+# don't include rogue flymake files
+*_flymake.hs
+# emacs tempfiles
+*~
+
 dist
 cabal-dev
 *.o
