@@ -11,9 +11,13 @@ data Expr e = LBool Bool
             | Cmp e e
             | Add e e
             | Not e
-              deriving (Show, Read, Functor, Foldable, Traversable)
+              deriving (Eq, Show, Read, Functor, Foldable, Traversable)
 
-type RawExpr = Attr Expr (Rec Empty)
+instance EqF   Expr where equalF     = (==)
+instance ShowF Expr where showsPrecF = showsPrec
+
+type RawExpr = AnnExpr Empty
+type AnnExpr r = Attr Expr (Rec r)
 
 fixAnn :: a -> f (Mu (Ann f a)) -> Attr f a
 fixAnn a x = Fix $ Ann a x
