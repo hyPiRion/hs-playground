@@ -1,0 +1,4 @@
+[submodule "trex-ann/.extra-deps/CTRex"]
+	path = trex-ann/.extra-deps/CTRex
+	url = https://github.com/aavogt/CTRex.git
+  ignore = dirty
